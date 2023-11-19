@@ -1,0 +1,3 @@
+Make the script executable by executing chmod +x start-agent.sh in the directory.
+
+Now create a /etc/systemd/system/jenkins-agent.service file with the following content:
