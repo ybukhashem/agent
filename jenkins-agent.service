@@ -1,3 +1,26 @@
 Make the script executable by executing chmod +x start-agent.sh in the directory.
 
 Now create a /etc/systemd/system/jenkins-agent.service file with the following content:
+
+
+[Unit]
+Description=Jenkins Agent
+
+[Service]
+User=jenkins
+WorkingDirectory=/home/jenkins
+ExecStart=/bin/bash /usr/local/jenkins-service/start-agent.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+
+
+sudo systemctl enable jenkins-agent.service
+
+
+sudo systemctl start jenkins-agent.service
+
+sudo systemctl status jenkins-agent.service
+
+
